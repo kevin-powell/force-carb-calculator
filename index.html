@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Force Carb Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Force Carbonation Calculator</h1>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="frosted flow">
+        <div class="even-columns">
+          <div><label for="pressure">Pressure <span>(psi)</span></label><input value="12" type="number" name="pressure"
+              id="pressure"></div>
+          <div><label for="time">Time <span>(hours)</span></label><input value="24" type="text" name="time" id="time">
+          </div>
+          <div><label for="temp">Temperature <span>(F)</span></label><input value="36" type="text" name="temp"
+              id="temp">
+          </div>
+        </div>
+        <p class="assumptions">Assumptions: you are starting with beer from your primary or secondary at 0.8 to 1.2
+          volumes, in a 5 gallon corney keg, and no shaking.</p>
+        <p class="result">
+          End volumes CO<sub>2</sub>: <span>2.4</span>
+        </p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p>Credit will go here</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

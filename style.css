@@ -1,0 +1,197 @@
+:root {
+  /* Color styles */
+  --primary-400: hsla(39, 69%, 60.8%, 1);
+  --primary-300: hsla(40, 47.9%, 76.7%, 1);
+
+  --neutral-100: hsla(0, 0%, 100%, 1);
+  --neutral-900: hsl(0 0 0 / 1);
+
+  /* Text-size styles */
+  /* base size: base (16px) */
+  --fs-title: 2rem;
+  --fs-input-label: 1.5rem;
+  --fs-assumption: 1.12rem;
+  --fs-output-value: 7.32rem;
+  --fs-output-label: 2.5rem;
+  --base: 1rem;
+
+  /* Effect styles */
+  --frosted-glass: blur(1rem);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #333;
+  background-image: url(//unsplash.it/900);
+  background-size: cover;
+  font-family: sans-serif;
+  font-size: var(--base);
+  text-align: center;
+  color: var(--primary-300);
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.container {
+  max-width: 80ch;
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+.even-columns {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+@media (min-width: 40em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
+.frosted {
+  background: hsl(0 0% 0% / 0.7);
+  padding: min(10vmax, 3rem);
+  border-radius: 0.5rem;
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+  .frosted {
+    background: hsl(0 0% 0% / 0.2);
+    backdrop-filter: blur(0.5rem);
+  }
+}
+
+/* typography */
+
+h1 {
+  margin-inline: auto;
+  margin-block: 1em min(7rem, 5vh);
+  font-size: var(--fs-title);
+  line-height: 0.9;
+  font-weight: 900;
+  color: var(--primary-400);
+  text-transform: uppercase;
+  width: min-content;
+}
+
+/* inputs */
+
+label {
+  display: block;
+  font-weight: 700;
+}
+
+input {
+  width: 10ch;
+  font-size: var(--fs-input-label);
+  padding: 0.5rem 1.5rem;
+  border: solid 3px var(--primary-400);
+  border-radius: 0.125em;
+  text-align: center;
+}
+
+.assumptions {
+  color: var(--neutral-100);
+}
+
+.result {
+  color: var(--primary-400);
+  font-size: var(--fs-output-label);
+}
+
+.result span {
+  display: block;
+  font-size: var(--fs-output-value);
+  font-weight: 700;
+  line-height: 0.8;
+  color: var(--neutral-100);
+}
+
+/* input[type="number"] {
+  -moz-appearance: textfield;
+} */
+
+footer {
+  margin-top: auto;
+}
