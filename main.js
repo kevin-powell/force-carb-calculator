@@ -27,7 +27,7 @@ function calculate(){
     const time = timeEl.value;
     const temp = tempEl.value;
     const result = formula(e,pressure,time,temp).toFixed(2);
-    resultEl.textContent = result;
+    resultEl.innerText = result;
     setLocalStorage(pressure,time,temp)
 }
 
