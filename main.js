@@ -8,8 +8,19 @@ inputs.forEach((input) => {
   input.oninput = outputResult;
 });
 
+function setInitialValues() {
+  pressureInput.value = localStorage.getItem('pressure') ?? 12;
+  tempInput.value = localStorage.getItem('temp') ?? 36;
+  timeInput.value = localStorage.getItem('time') ?? 120;
+}
+
+function storeUserValues() {
+  localStorage.setItem('pressure', pressureInput.value);
+  localStorage.setItem('temp', tempInput.value);
+  localStorage.setItem('time', timeInput.value);
+}
+
 function outputResult() {
-  // get the values for each input
   const pa = pressureInput.value;
   const e = Math.E;
   const temp = tempInput.value;
@@ -17,7 +28,9 @@ function outputResult() {
   
   const result = ((0.17*pa*(1 - e ** (-0.014*t)))+3.04)* e ** ((0.0006 * Math.log(pa * (1 - e **(-0.014 * t)))-0.02) * temp);
 
+  storeUserValues();
   output.innerHTML = result.toFixed(2);
 }
 
+setInitialValues()
 outputResult();
