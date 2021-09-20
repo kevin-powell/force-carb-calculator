@@ -180,7 +180,7 @@ input {
   font-size: var(--fs-output-label);
 }
 
-.result span {
+.result output {
   display: block;
   font-size: var(--fs-output-value);
   font-weight: 700;
