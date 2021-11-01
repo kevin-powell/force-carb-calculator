@@ -130,6 +130,18 @@ body {
   }
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
 .frosted {
   background: hsl(0 0% 0% / 0.7);
   padding: min(10vmax, 3rem);
@@ -195,4 +207,42 @@ input {
 
 footer {
   margin-top: auto;
+}
+
+.unit-toggle {
+  margin: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.unit-toggle button {
+  cursor: pointer;
+  width: 4rem;
+  /* height: 1.5rem; */
+  padding: 0.25em;
+  background: transparent;
+  border: 3px solid var(--primary-400);
+  border-radius: 100vw;
+}
+
+.unit-toggle button::before {
+  content: "";
+  display: block;
+  width: 1rem;
+  margin: 0 0 0 auto;
+  border-radius: 100vw;
+  aspect-ratio: 1;
+  background: var(--primary-400);
+}
+
+.unit-toggle > input:checked + button::before {
+  margin: 0;
+}
+
+.unit-toggle > label:hover,
+.unit-toggle > label:focus-visible {
+  cursor: pointer;
+  color: white;
 }

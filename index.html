@@ -17,7 +17,7 @@
   <!-- change for output -->
   <main>
     <div class="container">
-      <article class="frosted flow">
+      <div class="frosted flow">
         <div class="even-columns">
           <div>
             <label for="pressure">Pressure <span>(psi)</span></label>
@@ -28,7 +28,7 @@
             <input value="24" type="number" min="0" name="time" id="time">
           </div>
           <div>
-            <label for="temp">Temperature <span>(F)</span></label>
+            <label for="temp">Temperature (<span data-unit="fah">F</span>)</label>
             <input value="36" type="number" min="0" name="temp" id="temp">
           </div>
         </div>
@@ -37,7 +37,16 @@
         <p class="result">
           End volumes CO<sub>2</sub>: <output class="final-result"></output>
         </p>
-      </article>
+      </div>
+
+      <div class="unit-toggle">
+        <label for="cel">&deg;C</label>
+        <input id="cel" type="radio" name="unit" tabindex="-1" class="sr-only">
+        <button aria-label="switch to celcius"></button>
+        <label for="fah">&deg;F</label tabindex="0">
+        <input id="fah" type="radio" name="unit" checked class="sr-only">
+      </div>
+
     </div>
   </main>
 
