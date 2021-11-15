@@ -29,7 +29,7 @@ function setInitialValues() {
   celInput.checked = localStorage.getItem("cel") ?? false;
 
   if (celInput.checked) {
-    unitLabel.innerText = "C";
+    unitLabel.innerText = "(C)";
   }
 }
 
@@ -116,12 +116,12 @@ function unitsToFahrenheit(value) {
 
 function labelsToCelsius() {
   unitToggleButton.setAttribute("aria-label", "switch to Fahrenheit");
-  unitLabel.innerText = "C";
+  unitLabel.innerText = "(C)";
 }
 
 function labelsToFahrenheit() {
   unitToggleButton.setAttribute("aria-label", "switch to Celsius");
-  unitLabel.innerText = "F";
+  unitLabel.innerText = "(F)";
 }
 
 setInitialValues();

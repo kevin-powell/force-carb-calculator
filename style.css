@@ -1,6 +1,6 @@
 :root {
   /* Color styles */
-  --primary-400: hsla(39, 69%, 60.8%, 1);
+  --primary-400: hsla(40, 100%, 55%, 1);
   --primary-300: hsla(40, 47.9%, 76.7%, 1);
 
   --neutral-100: hsla(0, 0%, 100%, 1);
@@ -9,10 +9,10 @@
   /* Text-size styles */
   /* base size: base (16px) */
   --fs-title: 2rem;
-  --fs-input-label: 1.5rem;
+  --fs-input: clamp(1.5rem, 5vw + 0.25rem, 2.25rem);
   --fs-assumption: 1.12rem;
-  --fs-output-value: 7.32rem;
-  --fs-output-label: 2.5rem;
+  --fs-output-value: clamp(5rem, 15vw + 1rem, 7.5rem);
+  --fs-output-label: 1.75rem;
   --base: 1rem;
 
   /* Effect styles */
@@ -94,18 +94,24 @@ select {
   }
 }
 
+:focus {
+  outline-offset: 0.25rem;
+  outline: 2px solid white;
+}
+
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #555;
-  background-image: url("images/background-image.jpg");
-  background-blend-mode: multiply;
-  background-size: cover;
   font-family: sans-serif;
   font-size: var(--base);
   text-align: center;
-  color: var(--primary-300);
+  color: var(--neutral-100);
+  background: #222;
+  background-image: url("images/background-image.jpg");
+  background-blend-mode: multiply;
+  background-size: cover;
+  padding: 1rem;
 }
 
 .flow > * + * {
@@ -119,15 +125,15 @@ body {
 }
 
 .even-columns {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--gap, 1rem);
 }
 
-@media (min-width: 40em) {
-  .even-columns {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-  }
+.even-columns > * {
+  flex: 1;
+  min-width: 20ch;
 }
 
 .sr-only {
@@ -171,25 +177,40 @@ h1 {
 
 label {
   display: block;
+  color: hsl(0 0% 100% / 0.8);
   font-weight: 700;
+  line-height: 1.2;
 }
 
-input {
-  width: 10ch;
-  font-size: var(--fs-input-label);
-  padding: 0.5rem 1.5rem;
-  border: solid 3px var(--primary-400);
-  /* border-radius: 0.125em; */
+label span {
+  font-weight: 400;
+}
+
+#main-controls input {
+  color: hsl(0 0% 100% / 0.8);
+  font-size: var(--fs-input);
   text-align: center;
+  width: 100%;
+  max-width: 20ch;
+  padding: 0.5em 0.25rem;
+  margin-block-start: 0.5rem;
+  background: hsl(0 0% 100% / 0.05);
+  border: solid 1px var(--primary-400);
+  border-radius: 0.25rem;
 }
 
 .assumptions {
   color: var(--neutral-100);
+  opacity: 0.8;
+  margin-block-start: 1.5rem;
 }
 
 .result {
   color: var(--primary-400);
   font-size: var(--fs-output-label);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-top: min(5vh, 2rem);
 }
 
 .result output {
@@ -198,15 +219,12 @@ input {
   font-weight: 700;
   line-height: 0.8;
   color: var(--neutral-100);
+  margin-block-start: 0.5rem;
 }
 
 /* input[type="number"] {
   -moz-appearance: textfield;
 } */
-
-footer {
-  margin-top: auto;
-}
 
 .unit-toggle {
   margin: 3rem;
@@ -222,7 +240,7 @@ footer {
   /* height: 1.5rem; */
   padding: 0.25em;
   background: transparent;
-  border: 3px solid var(--primary-400);
+  border: 2px solid var(--primary-400);
   border-radius: 100vw;
 }
 
@@ -244,4 +262,19 @@ footer {
 .unit-toggle > label:focus-visible {
   cursor: pointer;
   color: white;
+}
+
+footer {
+  margin-block: auto 2rem;
+  opacity: 0.7;
+}
+
+footer a {
+  font-weight: 700;
+  color: var(--primary-400);
+}
+
+footer a:hover,
+footer a:focus {
+  color: inherit;
 }
